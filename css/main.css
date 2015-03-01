@@ -79,6 +79,9 @@ html, body {
     margin: 25px 0;
     font-size: 100px;
     float: left;
+    border: 1px dashed #fff;
+    cursor: pointer;
+    padding: 5px;
 }
 
 #header #sponsors {
