@@ -77,10 +77,18 @@ html, body {
 #header #logo {
     line-height: 1;
     margin: 25px 0;
-    font-size: 100px;
+    font-size: 80px;
     float: left;
     cursor: pointer;
-    padding: 5px;
+    padding: 15px;
+    background: #333;
+}
+
+#header #logo:active {
+    position: relative;
+    top: 3px;
+    background: yellow;
+    color: #333;
 }
 
 #header #sponsors {
