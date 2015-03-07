@@ -65,7 +65,7 @@ textarea {
 html, body {
     background: #1d1e1a;
     color: #f6f6ef;
-    font-family: 'Courier New', 'Courier', monospace;
+    font-family: 'Code New Roman', 'Courier New', 'Courier', monospace;
 
     height: 100%;
 }
@@ -89,8 +89,9 @@ html, body {
 }
 
 #header #sponsors img {
-    max-height: 100px;
+    max-height: 80px;
     margin: 0 20px;
+    padding: 10px 0 0;
 }
 
 #code {
