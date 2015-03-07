@@ -82,6 +82,7 @@ html, body {
     cursor: pointer;
     padding: 15px;
     background: #333;
+    vertical-align: top;
 }
 
 #header #logo:active {
@@ -91,9 +92,19 @@ html, body {
     color: #333;
 }
 
+#header #timer {
+    float: left;
+    margin: 25px 0;
+    vertical-align: top;
+    font-size: 80px;
+    padding: 0 0 0 50px;
+    color: #888;
+}
+
 #header #sponsors {
     margin: 25px 0;
     float: right;
+    vertical-align: top;
 }
 
 #header #sponsors img {
