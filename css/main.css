@@ -92,15 +92,6 @@ html, body {
     color: #333;
 }
 
-#header #timer {
-    float: left;
-    margin: 25px 0;
-    vertical-align: top;
-    font-size: 80px;
-    padding: 0 0 0 50px;
-    color: #888;
-}
-
 #header #sponsors {
     margin: 25px 0;
     float: right;
