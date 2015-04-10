@@ -61,6 +61,9 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+* {
+    box-sizing: border-box;
+}
 
 html, body {
     background: #1d1e1a;
