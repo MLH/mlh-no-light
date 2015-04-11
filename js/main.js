@@ -13,7 +13,7 @@ $(function () {
 
 		var c = confirm("Are you sure you want to render your code?\n\nYou will not be able to come back to it.");
 		if(c) {
-			$("html").html($("#code").val());
+			document.getElementsByTagName('html')[0].innerHTML = $('#code').val();
 		}
 
 	});
