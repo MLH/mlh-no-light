@@ -14,6 +14,16 @@ $(function () {
 		var c = confirm("Are you sure you want to render your code?\n\nYou will not be able to come back to it.");
 		if(c) {
 			document.getElementsByTagName('html')[0].innerHTML = $('#code').val();
+			var scripts = document.getElementsByTagName("script");
+	    for (var i = 0; i < scripts.length; i++) {
+        if (scripts[i].src != "") {
+          var tag = document.createElement("script");
+          tag.src = scripts[i].src;
+          document.getElementsByTagName("head")[0].appendChild(tag);
+        } else {
+          eval(scripts[i].innerHTML);
+        }
+	    }
 		}
 
 	});
