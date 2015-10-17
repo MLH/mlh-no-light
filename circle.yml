@@ -7,7 +7,7 @@ machine:
   environment:
     SECRET_KEY_BASE: "test_secret"
 
-tests:
+test:
   override:
     - rake spec
 
