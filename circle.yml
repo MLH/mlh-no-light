@@ -10,8 +10,3 @@ machine:
 test:
   override:
     - rake spec
-
-dependencies:
-  pre:
-    - gem uninstall bundler
-    - gem install bundler --pre
