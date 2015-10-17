@@ -1,0 +1,6 @@
+# MongoDB in development
+/dev.db
+/data
+
+# Gemfiles
+Gemfile.lock
