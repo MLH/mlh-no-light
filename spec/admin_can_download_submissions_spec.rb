@@ -45,7 +45,10 @@ describe NoLightSinatra do
     page.response_headers['Content-Disposition'].must_equal       'attachment; filename="' + hackathon + '.zip"'
     page.response_headers['Content-Transfer-Encoding'].must_equal 'binary'
 
-    # Need to add tests to check the contents of the ZIP.
-    # Currently `page.body` isn't returning anything. Need to investigate.
+    tempfile = Tempfile.new(hackathon)
+    tempfile.write(page.source)
+    tempfile.close
+
+    Submission.by_hackathon(hackathon).map(&:filename).must_equal Zippy.list(tempfile.path)
   end
 end

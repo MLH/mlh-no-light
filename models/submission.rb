@@ -29,9 +29,9 @@ class Submission
   # The filename we'll call it in the ZIP file.
   def filename
     formatted_name = "#{name}".tr(' ', '_')
-    random_string  = SecureRandom.urlsafe_base64[0..4]
+    formatted_time = "#{created_at.hour}:#{created_at.min}:#{created_at.sec}"
 
-    "#{hackathon}/#{formatted_name}_#{random_string}.html"
+    "#{hackathon}/#{formatted_name}_#{formatted_time}.html"
   end
 
   key :name, String

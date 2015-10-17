@@ -57,7 +57,7 @@ class NoLightSinatra < Sinatra::Base
   end
 
   def create_tempfile
-    @create_tempfile = Tempfile.new(get_hackathon)
+    @create_tempfile ||= Tempfile.new(get_hackathon)
   end
 
   def get_submit_params
@@ -78,7 +78,9 @@ class NoLightSinatra < Sinatra::Base
       if block_given?
         yield(zip)
       else
-        array.to_a.each { |entry| zip[entry.filename] = entry.html }
+        array.to_a.each do |entry|
+          zip[entry.filename] = entry.html
+        end
       end
     end
   end
