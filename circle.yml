@@ -1,7 +1,7 @@
 machine:
   timezone: "UTC"
   ruby:
-    version: 1.9.3p547
+    version: 1.9.3
   services:
     - mongodb
   environment:
