@@ -5,13 +5,13 @@ require "bundler"
 Bundler.require
 
 # Local config
-require "find"
+# require "find"
 
-%w{config/initializers lib models}.each do |load_path|
-  Find.find(load_path) { |f|
-    require f unless f.match(/\/\..+$/) || File.directory?(f)
-  }
-end
+# %w{config/initializers lib models}.each do |load_path|
+#   Find.find(load_path) { |f|
+#     require f unless f.match(/\/\..+$/) || File.directory?(f)
+#   }
+# end
 
 require "sinatra/reloader" if development?
 require "securerandom"
