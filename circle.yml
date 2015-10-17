@@ -1,4 +1,17 @@
 machine:
   timezone: "UTC"
+  ruby:
+    version: 1.9.3p547
+  services:
+    - mongodb
   environment:
     SECRET_KEY_BASE: "test_secret"
+
+tests:
+  override:
+    - rake spec
+
+dependencies:
+  pre:
+    - gem uninstall bundler
+    - gem install bundler --pre
