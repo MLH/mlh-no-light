@@ -1,0 +1,4 @@
+machine:
+  timezone: "UTC"
+  environment:
+    SECRET_KEY_BASE: "test_secret"
