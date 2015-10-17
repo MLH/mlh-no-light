@@ -9,4 +9,5 @@ machine:
 
 test:
   override:
+    - bundle install
     - rake spec
