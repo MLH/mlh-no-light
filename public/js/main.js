@@ -52,14 +52,14 @@
 	$("#submission_html").focus().disableEnterKey();
 
 	// Submitting their code
-	$("#submit").click(function(e){
+	$("button#submit").click(function(e){
 
 		showConfirmationDialog().then(function(){
 			// success - get their name
 			promptUserForName().then(function(name){
 				window.hasSubmittedForm = true;				
 				$("input#submission_name").val(name);
-				$("#submit").addClass('.progress');
+				$("button#submit").addClass('progress');
 				$("form").submit();
 			}, function(){
 				alert("You need to enter your name.");
