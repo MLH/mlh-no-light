@@ -9,6 +9,8 @@ class NoLightSinatra < Sinatra::Base
       'test'        => { 'uri' => 'mongodb://localhost/no_light_test' },
       'production'  => { 'uri' => ENV['MONGODB_URI'] }
     }
+    
+    DEFAULT_BRANDING = 'dell'
 
     MongoMapper.setup(environments, ENV['RACK_ENV'])
   end
@@ -34,7 +36,7 @@ class NoLightSinatra < Sinatra::Base
     end
   end
 
-  get '/:hackathon' do show_editor end
+  get '/:hackathon' do show_editor(DEFAULT_BRANDING) end
   get '/:hackathon/:branding' do show_editor(params[:branding]) end
 
   private
@@ -51,7 +53,7 @@ class NoLightSinatra < Sinatra::Base
     erb :submitted
   end
 
-  def show_editor(custom_branding = 'dell')
+  def show_editor(custom_branding)
     @body_class = ['editor', custom_branding].join(' ')
     erb :editor
   end
