@@ -203,3 +203,10 @@ form {
 
   width: 300px;
 }
+
+.kcl #sponsors .custom-branding {
+  background: url('/img/sponsors/kcl.png') no-repeat 0 10px;
+  background-size: auto 85%;
+
+  width: 220px;
+}
