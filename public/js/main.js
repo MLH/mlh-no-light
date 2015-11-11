@@ -29,7 +29,7 @@
 			var name_prompt;
 			name_prompt = prompt("What's your name?", "", "");
 
-			if(name_prompt === null || name_prompt === "") {
+			if(name_prompt === null || $.trim(name_prompt) === "") {
 				reject();
 			} else {
 				resolve(name_prompt);
