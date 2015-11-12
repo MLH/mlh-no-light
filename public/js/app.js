@@ -1,4 +1,4 @@
-// public/js/main.js
+// public/js/app.js
 
 $(document).ready(function(){
 
