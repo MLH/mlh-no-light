@@ -4,27 +4,28 @@ class NoLightSinatra < Sinatra::Base
   set public_folder: 'public', static: true
 
   configure do
-    environments = {
+    DEFAULT_BRANDING = 'dell'
+    ENVIRONMENTS = {
       'development' => { 'uri' => 'mongodb://localhost/no_light_development' },
       'test'        => { 'uri' => 'mongodb://localhost/no_light_test' },
       'production'  => { 'uri' => ENV['MONGODB_URI'] }
     }
     
-    DEFAULT_BRANDING = 'dell'
-
-    MongoMapper.setup(environments, ENV['RACK_ENV'])
+    MongoMapper.setup(ENVIRONMENTS, ENV['RACK_ENV'])
   end
 
-  get '/' do show_default_page end
+  get '/' do
+    erb :default_page
+  end
 
   post '/submit' do
     @submission = Submission.new(get_submit_params)
 
     if @submission.already_exists?
-      show_error
+      erb :error
     else
       @submission.save
-      show_submitted
+      erb :submitted
     end
   end
 
@@ -36,22 +37,15 @@ class NoLightSinatra < Sinatra::Base
     end
   end
 
-  get '/:hackathon' do show_editor(DEFAULT_BRANDING) end
-  get '/:hackathon/:branding' do show_editor(params[:branding]) end
+  get '/:hackathon' do
+    show_editor(DEFAULT_BRANDING)
+  end
+
+  get '/:hackathon/:branding' do
+    show_editor(params[:branding])
+  end
 
   private
-
-  def show_default_page
-    erb :default_page
-  end
-
-  def show_error
-    erb :error
-  end
-
-  def show_submitted
-    erb :submitted
-  end
 
   def show_editor(custom_branding)
     @body_class = ['editor', custom_branding].join(' ')
