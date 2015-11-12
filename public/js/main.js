@@ -53,6 +53,8 @@
 
 	// Submitting their code
 	$("button#submit").click(function(e){
+		e.preventDefault();
+		e.stopImmediatePropagation();
 
 		showConfirmationDialog().then(function(){
 			// success - get their name
@@ -63,12 +65,9 @@
 				$("form").submit();
 			}, function(){
 				alert("You need to enter your name.");
-				e.preventDefault();
 			});
 		}, function(){
-			// error - don't do anything because they didn't confirm their submission
 			$("#submission_html").focus();
-			e.preventDefault();
 		});
 
 	});
