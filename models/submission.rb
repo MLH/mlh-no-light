@@ -8,7 +8,7 @@ class Submission
 
   # Statistical functions
   # How many lines of code have they written, how many bytes is it?
-  def bytes; string_io_instance.bytes.count; end
+  def bytes; string_io_instance.bytes.to_a.inspect; end
   def lines; string_io_instance.lines.count; end
 
   # Checking for duplication
@@ -29,20 +29,21 @@ class Submission
   # The filename we'll call it in the ZIP file.
   def filename
     formatted_name = "#{name}".tr(' ', '_')
-    formatted_time = "#{created_at.hour}:#{created_at.min}:#{created_at.sec}"
+    formatted_time = [created_at.hour, created_at.min, created_at.sec].join('_')
 
     "#{hackathon}/#{formatted_name}_#{formatted_time}.html"
   end
 
-  key :name, String
+  key :name,      String
   key :hackathon, String
-  key :html, String
-  key :seconds, Integer
+  key :html,      String
+  key :seconds,   Integer
+  
   timestamps!
 
   private
 
   def string_io_instance
-    @string_io_instance ||= StringIO.new(html)
+    StringIO.new(html)
   end
 end
