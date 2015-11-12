@@ -52,13 +52,13 @@ describe NoLightSinatra do
       hackathon: 'random-hackathon',
       seconds:   Time.now.to_s,
       name:      'John Smith',
-      textarea:  '<h1>Hello dear world.</h1>'
+      html:      File.read(File.join('spec', 'testdata', 'entry.html'))
     }.merge(submission_params)
 
     page.first('#submission_hackathon', visible: false).set(submission_params[:hackathon])
     page.first('#submission_seconds',   visible: false).set(submission_params[:seconds])
     page.first('#submission_name',      visible: false).set(submission_params[:name])
-    page.first('#submission_html').set(submission_params[:html])
+    page.first('#submission_html',      visible: true).set(submission_params[:html])
 
     page.click_button('!light')
   end
