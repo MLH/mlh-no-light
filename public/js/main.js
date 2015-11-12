@@ -1,6 +1,6 @@
 // public/js/main.js
 
-(function($){
+$(document).ready(function(){
 
 	// Custom functions
 	$.fn.disableEnterKey = function(){
@@ -83,4 +83,4 @@
 		});
 	});
 
-})(jQuery);
+});
