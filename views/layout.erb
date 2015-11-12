@@ -23,6 +23,6 @@
 
     <%= yield %>
 
-    <%= erb :javascripts if Sinatra::Base.test? %>    
+    <%= erb :javascripts unless Sinatra::Base.test? %>    
   </body>
 </html>
