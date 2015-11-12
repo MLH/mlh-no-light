@@ -6,6 +6,7 @@ Bundler.setup
 Bundler.require
 
 ENV['RACK_ENV'] = 'test'
+set :environment, :test
 
 require_relative "../no_light_sinatra.rb"
 

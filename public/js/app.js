@@ -14,7 +14,7 @@ $(document).ready(function(){
 	var showConfirmationDialog = function(){
 		return new Promise(function(resolve, reject){
 			var confirm_dialog;
-			confirm_dialog = confirm("Are you sure you want to submit your code?\n\nYou will not be able to come back to it.");
+			confirm_dialog = confirm('Are you sure you want to submit your code?\n\nYou will not be able to come back to it.');
 
 			if(confirm_dialog == false) {
 				reject();
@@ -27,9 +27,9 @@ $(document).ready(function(){
 	var promptUserForName = function(){
 		return new Promise(function(resolve, reject){
 			var name_prompt;
-			name_prompt = prompt("What's your name?", "", "");
+			name_prompt = prompt("What's your name?", '');
 
-			if(name_prompt === null || $.trim(name_prompt) === "") {
+			if(name_prompt === null || $.trim(name_prompt) === '') {
 				reject();
 			} else {
 				resolve(name_prompt);
@@ -39,7 +39,7 @@ $(document).ready(function(){
 
 	var requestToLeavePage = function(){
 		return new Promise(function(resolve, reject){
-			if(window.hasSubmittedForm === false && $("#submission_html").val().length > 0 && $("body.editor").length > 0) {
+			if(!window.hasSubmittedForm && $('#submission_html').val().length > 0 && $('body.editor').length > 0) {
 				resolve();
 			} else {
 				reject();
@@ -49,34 +49,36 @@ $(document).ready(function(){
 
 	// Initial state
 	window.hasSubmittedForm = false;
-	$("#submission_html").focus().disableEnterKey();
-
-	// Submitting their code
-	$("button#submit").click(function(e){
+	
+	$('#submission_html').focus().disableEnterKey();
+	$('#editor').submit(function(e){
 		e.preventDefault();
 		e.stopImmediatePropagation();
 
+		$('#submit').addClass('progress');
+
 		showConfirmationDialog().then(function(){
-			// success - get their name
 			promptUserForName().then(function(name){
 				window.hasSubmittedForm = true;				
-				$("input#submission_name").val(name);
-				$("button#submit").addClass('progress');
-				$("form").submit();
+				$('input#submission_name').val(name);
+
+				window.setTimeout(function(){
+					$('#editor').unbind().find('#submit').click();
+				}, 1);
 			}, function(){
-				alert("You need to enter your name.");
+				alert('You need to enter your name.');
 			});
 		}, function(){
-			$("#submission_html").focus();
+			$('#submission_html').focus();
 		});
 
 	});
 
 	// Preventing them from leaving the page.
-	window.addEventListener("beforeunload", function(e) {
+	window.addEventListener('beforeunload', function(e) {
 		requestToLeavePage().then(function(){
 			var confirmation_message;
-			confirmation_message = "Are you sure you want to leave the page? All your code will be lost!";
+			confirmation_message = 'Are you sure you want to leave the page? All your code will be lost!';
 
 			(e || window.event).returnValue = confirmation_message; // Gecko + IE
 			return confirmation_message;                            // Gecko + Webkit, Safari, Chrome etc. 

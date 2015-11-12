@@ -8,7 +8,7 @@ class Submission
 
   # Statistical functions
   # How many lines of code have they written, how many bytes is it?
-  def bytes; string_io_instance.bytes.to_a.inspect; end
+  def bytes; string_io_instance.bytes.count; end
   def lines; string_io_instance.lines.count; end
 
   # Checking for duplication
