@@ -66,9 +66,11 @@ $(document).ready(function(){
 					$('#editor').unbind().find('#submit').click();
 				}, 1);
 			}, function(){
+				$('#submit').removeClass('progress');
 				alert('You need to enter your name.');
 			});
 		}, function(){
+			$('#submit').removeClass('progress');
 			$('#submission_html').focus();
 		});
 
