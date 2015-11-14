@@ -1,3 +1,7 @@
 # MongoDB in development
 /dev.db
 /data
+
+# Coveralls & coverage testing
+.coveralls.yml
+coverage/

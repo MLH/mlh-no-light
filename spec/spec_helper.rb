@@ -1,9 +1,12 @@
 # encoding: UTF-8
 
 require 'bundler'
+require 'coveralls'
 
 Bundler.setup
 Bundler.require
+
+Coveralls.wear!
 
 ENV['RACK_ENV'] = 'test'
 set :environment, :test
