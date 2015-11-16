@@ -71,7 +71,7 @@ class NoLightSinatra < Sinatra::Base
 
   def create_zip_folder(array = [])
     Zippy.create(create_tempfile.path) do |zip|
-      if block_given?
+      if zip && block_given?
         yield(zip)
       else
         array.to_a.each do |entry|
