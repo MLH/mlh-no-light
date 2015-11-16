@@ -1,10 +1,6 @@
 require_relative "spec_helper"
 require_relative "acceptance_helper"
 
-def app
-  NoLightSinatra
-end
-
 describe NoLightSinatra do
 
   it 'can find NoLightSinatra class' do
