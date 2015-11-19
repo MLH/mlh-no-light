@@ -5,3 +5,6 @@
 # Coveralls & coverage testing
 .coveralls.yml
 coverage/
+
+# DS_Store
+.DS_Store
