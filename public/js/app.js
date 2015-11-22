@@ -46,7 +46,7 @@
       var submission_html_trimmed;
       e.preventDefault();
       e.stopImmediatePropagation();
-      submission_html_trimmed = $.trim($('#submission_html').html());
+      submission_html_trimmed = $.trim($('#submission_html').val());
       if (submission_html_trimmed.length === 0) {
         return alert(NoLight.translations['empty_html']);
       }
