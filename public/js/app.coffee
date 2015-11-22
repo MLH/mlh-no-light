@@ -38,7 +38,7 @@ NoLight.init = ->
 
   submission_html.keyup (e) ->
     chars_count.text submission_html.val().length
-    lines_count.text (submission_html.val().match(/\n/g) || []).length
+    lines_count.text (submission_html.val().match(/\n/g) || []).length + 1
   
   # On submit!
   editor.submit (e) ->

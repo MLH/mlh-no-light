@@ -40,7 +40,7 @@
     });
     submission_html.keyup(function(e) {
       chars_count.text(submission_html.val().length);
-      return lines_count.text((submission_html.val().match(/\n/g) || []).length);
+      return lines_count.text((submission_html.val().match(/\n/g) || []).length + 1);
     });
     editor.submit(function(e) {
       var submission_html_trimmed;
