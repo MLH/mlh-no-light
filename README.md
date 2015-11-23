@@ -68,6 +68,6 @@ programming in style.
 * [Style](http://github.com/thoughtbot/guides/blob/master/style)
 
 
-# Licence
+# LICENSE
 
-The micro service for No Light is released under the MIT Licence. More information [can be found in LICENCE.md](LICENCE.md).
+The micro service for No Light is released under the MIT Licence. More information [can be found in LICENSE.md](LICENSE.md).
