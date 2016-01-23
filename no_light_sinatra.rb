@@ -30,7 +30,7 @@ class NoLightSinatra < Sinatra::Base
   end
 
   get '/:hackathon.zip' do
-    if @submissions = Submission.by_hackathon(get_hackathon)
+    if @submissions = Submission.by_hackathon(params[:hackathon])
       create_zip_folder(@submissions)
       set_response_headers
       download_zip_folder
