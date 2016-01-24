@@ -11,7 +11,6 @@ describe NoLightSinatra do
     visit '/random-hackathon'
     fill_in_submission(name: 'Mike Swift')
 
-
     page.text.must_have_content 'Submission received'
     page.text.must_have_content 'IT TOOK YOU %s SECONDS'                 % [last_submission.to_min_secs]
     page.text.must_have_content 'YOU WROTE %s LINES OF CODE / %s BYTES.' % [last_submission.lines, last_submission.bytes]
