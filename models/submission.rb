@@ -4,7 +4,7 @@ class Submission
   include MongoMapper::Document
 
   scope :duplicates,    lambda { |name, hackathon, html| where(name: name, hackathon: hackathon, html: html) }
-  scope :by_hackathon,  lambda { |hackathon| where(hackathon: hackathon.downcase) }
+  scope :by_hackathon,  lambda { |hackathon| where(hackathon: hackathon) }
 
   # Statistical functions
   # How many lines of code have they written, how many bytes is it?
