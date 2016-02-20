@@ -231,3 +231,11 @@ form {
 
   width: 220px;
 }
+
+.github #sponsors .custom-branding {
+  background: url('/img/sponsors/github.png') no-repeat 0 10px;
+  background-size: auto 85%;
+
+  margin-right: 50px;
+  width: 220px;
+}
