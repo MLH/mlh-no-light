@@ -7,3 +7,8 @@
 
 # Coveralls
 .coveralls.yml
+
+# Testing
+vendor/code_statistics.rb
+.env
+coverage/

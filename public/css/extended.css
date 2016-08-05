@@ -212,10 +212,10 @@ form {
 /** CUSTOM BRANDING **/
 
 .dell #sponsors .custom-branding {
-  background: url('/img/sponsors/dell-intel.png') no-repeat 0px 15px;
-  background-size: 80% auto;
+  background: url('/img/sponsors/dell-windows.png') no-repeat 0px 17px;
+  background-size: 260px auto;
 
-  width: 200px;
+  width: 290px;
 }
 
 .bloomberg #sponsors .custom-branding {
