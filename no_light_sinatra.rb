@@ -3,6 +3,8 @@ require_relative 'models/submission'
 class NoLightSinatra < Sinatra::Base
   set public_folder: 'public', static: true
 
+  use Airbrake::Sinatra
+
   configure do
     DEFAULT_BRANDING = 'dell'
     ENVIRONMENTS = {

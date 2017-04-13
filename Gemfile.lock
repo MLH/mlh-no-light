@@ -19,6 +19,9 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.5.1)
       public_suffix (~> 2.0, >= 2.0.2)
+    airbrake (6.0.0)
+      airbrake-ruby (~> 2.0)
+    airbrake-ruby (2.0.0)
     arel (7.1.4)
     backports (3.7.0)
     bson (1.12.5)
@@ -114,6 +117,7 @@ PLATFORMS
 
 DEPENDENCIES
   activemodel-serializers-xml
+  airbrake
   bson_ext
   capybara
   capybara-webkit

@@ -2,6 +2,7 @@ ruby   '2.4.0'
 source 'https://rubygems.org'
 
 gem 'activemodel-serializers-xml'
+gem 'airbrake'
 gem 'bson_ext'
 gem 'mongo_mapper'
 gem 'skylight'
