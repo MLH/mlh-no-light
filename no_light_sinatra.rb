@@ -14,6 +14,11 @@ class NoLightSinatra < Sinatra::Base
     MongoMapper.setup(ENVIRONMENTS, ENV['RACK_ENV'])
   end
 
+  configure :production do
+    require "skylight/sinatra"
+    Skylight.start!
+  end
+
   get '/' do
     erb :default_page
   end
