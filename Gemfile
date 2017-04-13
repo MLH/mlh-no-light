@@ -1,9 +1,10 @@
-ruby   '1.9.3'
-source 'https://rubygems.org/'
+ruby   '2.4.0'
+source 'https://rubygems.org'
 
+gem 'activemodel-serializers-xml'
 gem 'bson_ext'
 gem 'mongo_mapper'
-gem 'sinatra', '~> 1.4'
+gem 'sinatra'
 gem 'sinatra-contrib'
 gem 'zippy'
 
@@ -12,16 +13,16 @@ group :development do
 end
 
 group :development, :test do
-  gem 'rake', '~> 10.0'
+  gem 'rake'
 end
 
 group :test do
-  gem 'capybara',               '~> 1.1'
-  gem 'capybara-webkit',        '~> 0.11'
-  gem 'capybara_minitest_spec', '~> 0.2'
+  gem 'capybara'
+  gem 'capybara-webkit'
+  gem 'capybara_minitest_spec'
   gem 'coveralls', require: false
   gem 'database_cleaner'
   gem 'faker'
-  gem 'minitest',               '~> 5.1'
-  gem 'rack-test',              '~> 0.6.1'
+  gem 'minitest'
+  gem 'rack-test'
 end

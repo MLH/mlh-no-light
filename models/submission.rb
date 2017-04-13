@@ -8,8 +8,8 @@ class Submission
 
   # Statistical functions
   # How many lines of code have they written, how many bytes is it?
-  def bytes; string_io_instance.bytes.count; end
-  def lines; string_io_instance.lines.count; end
+  def bytes; string_io_instance.each_byte.to_a.count; end
+  def lines; string_io_instance.each_line.to_a.count; end
 
   # Checking for duplication
   # What if someone refreshes? Have they already submitted the exact same submission?

@@ -18,13 +18,14 @@ require 'minitest/autorun'
 require 'minitest/spec'
 require 'rack/test'
 require 'faker'
+
 require 'database_cleaner'
+DatabaseCleaner.strategy = :truncation
 
-# require 'find'
-
-# %w{./config/initializers ./lib}.each do |load_path|
-#   Find.find(load_path) { |f| require f if f.match(/\.rb$/) }
-# end
+require 'find'
+%w{./config/initializers ./lib}.each do |load_path|
+  Find.find(load_path) { |f| require f if f.match(/\.rb$/) }
+end
 
 class MiniTest::Spec
   include Rack::Test::Methods
@@ -34,6 +35,6 @@ class MiniTest::Spec
   end
 
   after(:each) do
-    DatabaseCleaner.clean_with(:truncation)
+    DatabaseCleaner.clean
   end
 end
