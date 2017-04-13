@@ -1,13 +1,5 @@
 require_relative 'models/submission'
 
-Airbrake.configure do |c|
-  c.project_id = 141503
-  c.project_key = '94823b6fc825a7bd16f6fc359d0ac501'
-  c.logger = NoLightSinatra.logger
-  c.ignore_environments = %w(test)
-  c.blacklist_keys = [/password/i]
-end
-
 class NoLightSinatra < Sinatra::Base
   set public_folder: 'public', static: true
 
@@ -22,6 +14,14 @@ class NoLightSinatra < Sinatra::Base
     }
     
     MongoMapper.setup(ENVIRONMENTS, ENV['RACK_ENV'])
+    
+    Airbrake.configure do |c|
+      c.project_id = 141503
+      c.project_key = '94823b6fc825a7bd16f6fc359d0ac501'
+      c.logger = NoLightSinatra.logger
+      c.ignore_environments = %w(test)
+      c.blacklist_keys = [/password/i]
+    end
   end
 
   configure :production do
