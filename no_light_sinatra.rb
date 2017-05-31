@@ -10,7 +10,7 @@ Airbrake.configure do |c|
 end
 
 class NoLightSinatra < Sinatra::Base
-  # use Airbrake::Rack::Middleware 
+  use Airbrake::Rack::Middleware unless ENV['RACK_ENV'] == 'test'
   set public_folder: 'public', static: true
 
   configure do
@@ -56,7 +56,7 @@ class NoLightSinatra < Sinatra::Base
     show_editor(DEFAULT_BRANDING)
   end
 
-  get '/:hackathon/:branding' do
+  get '/:hackathon/:branding?' do
     show_editor(params[:branding])
   end
 
