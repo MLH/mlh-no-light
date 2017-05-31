@@ -12,7 +12,7 @@ describe NoLightSinatra do
     fill_in_submission(name: 'Mike Swift')
 
     page.text.must_have_content 'Submission received'
-    page.text.must_have_content 'IT TOOK YOU %s SECONDS'                 % [last_submission.to_min_secs]
+    page.text.must_have_content 'IT TOOK YOU %s MINUTES'                 % [last_submission.to_min_secs]
     page.text.must_have_content 'YOU WROTE %s LINES OF CODE / %s BYTES.' % [last_submission.lines, last_submission.bytes]
   end
 
@@ -25,7 +25,7 @@ describe NoLightSinatra do
     submit_an_entry.call
 
     page.text.must_have_content 'Submission received'
-    page.text.must_have_content 'IT TOOK YOU %s SECONDS'                 % [last_submission.to_min_secs]
+    page.text.must_have_content 'IT TOOK YOU %s MINUTES'                 % [last_submission.to_min_secs]
     page.text.must_have_content 'YOU WROTE %s LINES OF CODE / %s BYTES.' % [last_submission.lines, last_submission.bytes]
 
     # Attempt to re-submit the exact same entry.
@@ -41,9 +41,9 @@ describe NoLightSinatra do
     fill_in_submission(name: 'Mike Swift', hackathon: 'treehacks')
 
     page.text.must_have_content 'Submission received'
-    page.text.must_have_content 'IT TOOK YOU %s SECONDS'                 % [last_submission.to_min_secs]
+    page.text.must_have_content 'IT TOOK YOU %s MINUTES'                 % [last_submission.to_min_secs]
     page.text.must_have_content 'YOU WROTE %s LINES OF CODE / %s BYTES.' % [last_submission.lines, last_submission.bytes]
-  end
+  end 
 
   private
 

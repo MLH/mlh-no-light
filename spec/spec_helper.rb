@@ -2,6 +2,7 @@
 
 require 'bundler'
 require 'coveralls'
+require 'pry'
 
 Bundler.setup
 Bundler.require
@@ -20,7 +21,7 @@ require 'rack/test'
 require 'faker'
 
 require 'database_cleaner'
-DatabaseCleaner.strategy = :truncation
+DatabaseCleaner[:mongo_mapper].strategy = :truncation
 
 require 'find'
 %w{./config/initializers ./lib}.each do |load_path|
@@ -31,10 +32,10 @@ class MiniTest::Spec
   include Rack::Test::Methods
 
   before(:each) do
-    DatabaseCleaner.start
+    DatabaseCleaner[:mongo_mapper].start
   end
 
   after(:each) do
-    DatabaseCleaner.clean
+    DatabaseCleaner[:mongo_mapper].clean
   end
 end
