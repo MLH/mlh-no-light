@@ -39,6 +39,10 @@ $ cd no-light
 $ mkdir data && mkdir data/db
 $ mongod --dbpath data/db
 
+Set ENV variable (on Mac OS X):
+$ export MY_MLH_KEY=...
+$ export MY_MLH_SECRET=...
+
 Launch server locally (on Mac OS X):
 $ rackup
 ```
