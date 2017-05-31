@@ -10,7 +10,7 @@ Airbrake.configure do |c|
 end
 
 class NoLightSinatra < Sinatra::Base
-  # use Airbrake::Rack::Middleware 
+  use Airbrake::Rack::Middleware unless ENV['RACK_ENV'] == 'test'
   enable  :sessions
 
   use OmniAuth::Builder do
@@ -82,7 +82,7 @@ class NoLightSinatra < Sinatra::Base
     end
   end
 
-  get '/:hackathon/:branding' do
+  get '/:hackathon/:branding?' do
     authorize do
       show_editor(params[:branding])
     end
