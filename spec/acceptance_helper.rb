@@ -11,6 +11,7 @@ require 'capybara_minitest_spec'
 Capybara.app = NoLightSinatra
 Capybara.default_driver = :webkit
 
+
 class MiniTest::Spec
   include Capybara::DSL
 end

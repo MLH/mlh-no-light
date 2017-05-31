@@ -1,13 +1,10 @@
 # encoding: UTF-8
 
 require 'bundler'
-require 'coveralls'
 require 'pry'
 
 Bundler.setup
 Bundler.require
-
-Coveralls.wear!
 
 ENV['RACK_ENV'] = 'test'
 set :environment, :test
@@ -36,6 +33,24 @@ class MiniTest::Spec
   end
 
   after(:each) do
+    visit '/logout'
     DatabaseCleaner[:mongo_mapper].clean
   end
+end
+
+OmniAuth.config.test_mode = true
+
+def mock_with_valid_mlh_credentials!
+  OmniAuth.config.mock_auth[:mlh] = OmniAuth::AuthHash.new({
+    provider: :mlh,
+    uid:      "1",
+    info:     OmniAuth::AuthHash::InfoHash.new({
+      email:        'grace.hopper@mlh.io',
+      created_at:   Time.now,
+      updated_at:   Time.now,
+      first_name:   'Grace',
+      last_name:    'Hopper',
+      scopes:       ['default']
+    })
+  })
 end

@@ -11,6 +11,12 @@ end
 
 class NoLightSinatra < Sinatra::Base
   # use Airbrake::Rack::Middleware 
+  enable  :sessions
+
+  use OmniAuth::Builder do
+    provider :mlh, ENV['MY_MLH_KEY'], ENV['MY_MLH_SECRET'], scope: 'default'
+  end
+
   set public_folder: 'public', static: true
 
   configure do
@@ -20,7 +26,7 @@ class NoLightSinatra < Sinatra::Base
       'test'        => { 'uri' => 'mongodb://localhost/no_light_test' },
       'production'  => { 'uri' => ENV['MONGODB_URI'] }
     }
-    
+
     MongoMapper.setup(ENVIRONMENTS, ENV['RACK_ENV'])
   end
 
@@ -31,6 +37,24 @@ class NoLightSinatra < Sinatra::Base
 
   get '/' do
     erb :default_page
+  end
+
+  get '/auth/mlh/callback' do
+    auth = request.env["omniauth.auth"]
+    session[:user_id] = auth["uid"]
+    next_page = session[:redirect]
+
+    if next_page
+      session[:redirect] = nil
+      redirect '%s' % next_page
+    else
+      redirect '/'
+    end
+  end
+
+  get '/logout' do
+    session.clear
+    redirect '/'
   end
 
   post '/submit' do
@@ -53,14 +77,27 @@ class NoLightSinatra < Sinatra::Base
   end
 
   get '/:hackathon' do
-    show_editor(DEFAULT_BRANDING)
+    authorize do
+      show_editor(DEFAULT_BRANDING)
+    end
   end
 
   get '/:hackathon/:branding' do
-    show_editor(params[:branding])
+    authorize do
+      show_editor(params[:branding])
+    end
   end
 
   private
+
+  def authorize
+    if session[:user_id]
+      yield
+    else
+      session[:redirect] = request.fullpath
+      redirect '/auth/mlh'
+    end
+  end
 
   def show_editor(custom_branding)
     @body_class = ['editor', custom_branding].join(' ')

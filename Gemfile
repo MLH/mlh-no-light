@@ -9,6 +9,8 @@ gem 'skylight'
 gem 'sinatra'
 gem 'sinatra-contrib'
 gem 'zippy'
+gem 'omniauth'
+gem 'omniauth-mlh'
 
 group :development do
   gem 'sinatra-reloader'
@@ -23,7 +25,6 @@ group :test do
   gem 'capybara'
   gem 'capybara-webkit'
   gem 'capybara_minitest_spec'
-  gem 'coveralls', require: false
   gem 'database_cleaner'
   gem 'faker'
   gem 'minitest'
