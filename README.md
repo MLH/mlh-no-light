@@ -1,6 +1,6 @@
 <center><img src="public/img/ui/no-light.png" width="100%" /></center>
 
-[![Circle CI](https://circleci.com/gh/MLH/no-light/tree/master.svg?style=svg)](https://circleci.com/gh/MLH/no-light/tree/master) [![Coverage Status](https://coveralls.io/repos/MLH/no-light/badge.svg?branch=master&service=github)](https://coveralls.io/github/MLH/no-light?branch=master)
+[![Circle CI](https://circleci.com/gh/MLH/no-light/tree/master.svg?style=svg)](https://circleci.com/gh/MLH/no-light/tree/master) 
 
 <br>
 This is a **micro service** that allows participants of the No Light mini-event to quickly submit their entries (see below for more info). The organizer of the mini-event can then conveniently download a ZIP file of all the entries.
@@ -38,6 +38,10 @@ $ brew install mongodb
 $ cd no-light
 $ mkdir data && mkdir data/db
 $ mongod --dbpath data/db
+
+Set ENV variable (on Mac OS X):
+$ export MY_MLH_KEY=...
+$ export MY_MLH_SECRET=...
 
 Launch server locally (on Mac OS X):
 $ rackup

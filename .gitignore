@@ -5,9 +5,6 @@
 # DS_Store
 .DS_Store
 
-# Coveralls
-.coveralls.yml
-
 # Testing
 vendor/code_statistics.rb
 .env
