@@ -35,6 +35,23 @@ describe NoLightSinatra do
     last_request.path.must_equal("/hacktheplanet")
   end
 
+  it 'displays the users name' do
+    sign_in!
+
+    visit '/hacktheplanet'
+
+    page.find('.current-user span').text.must_equal "You are playing !Light as Grace Hopper."
+  end
+
+  it 'allows a user to logout' do
+    sign_in!
+    visit '/hacktheplanet'
+
+    click_link "Logout"
+
+    page.has_css?('.current-user').must_equal false
+  end
+
   it 'redirects authorized users to the previous page' do
     visit '/hacktheplanet-test'
 

@@ -25,5 +25,10 @@
 
 <%= erb :javascripts unless ENV['RACK_ENV'] == 'test' %>
 
+<% if session[:user_id] %>
+  <p class="current-user">
+    <span>You are playing !Light as <%= session[:full_name] %>.</span> (<a href="/logout">Logout</a>)
+  </p>
+<% end %>
 </body>
 </html>
