@@ -42,6 +42,7 @@ class NoLightSinatra < Sinatra::Base
   get '/auth/mlh/callback' do
     auth = request.env["omniauth.auth"]
     session[:user_id] = auth["uid"]
+    session[:full_name] = "#{auth[:info][:first_name]} #{auth[:info][:last_name]}"
     next_page = session[:redirect]
 
     if next_page

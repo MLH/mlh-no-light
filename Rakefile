@@ -11,5 +11,3 @@ Rake::TestTask.new(:spec) do |t|
   t.ruby_opts = ['-W1']
   t.test_files = FileList['spec/*_spec.rb']
 end
-
-

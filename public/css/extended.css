@@ -239,3 +239,17 @@ form {
   margin-right: 50px;
   width: 220px;
 }
+
+/** LAYOUT **/
+
+.current-user {
+  bottom: 10px;
+  color: white;
+  font-size: 0.75rem;
+  position: fixed;
+  right: 10px;
+}
+
+.current-user a {
+  color: #FF69B4;
+}
