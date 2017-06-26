@@ -1,7 +1,6 @@
 <form action="/submit" method="post" id="editor">
   <input type="hidden" name="submission[hackathon]" value="<%= params[:hackathon] %>" id="submission_hackathon" />
   <input type="hidden" name="submission[seconds]"   value="<%= Time.now %>"           id="submission_seconds" />
-  <input type="hidden" name="submission[name]"      value=""                          id="submission_name" />
 
   <header>
       <button type="submit" id="submit">!light</button> <!-- Submit button -->

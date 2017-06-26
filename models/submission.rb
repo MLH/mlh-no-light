@@ -31,7 +31,7 @@ class Submission
     formatted_name = "#{name}".tr(' ', '_')
     formatted_time = [created_at.hour, created_at.min, created_at.sec].join('_')
 
-    "#{hackathon}/#{formatted_name}_#{formatted_time}.html"
+    "#{hackathon}/#{formatted_name}_#{formatted_time}_#{objectid_counter}.html"
   end
 
   key :name,      String
@@ -45,5 +45,9 @@ class Submission
 
   def string_io_instance
     StringIO.new(html)
+  end
+
+  def objectid_counter
+    self.id.to_s[-6..-1]
   end
 end

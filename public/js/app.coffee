@@ -5,7 +5,6 @@ NoLight = {
   translations: {
     empty_html: 'You need to enter HTML to be able to submit.',
     confirm:    'Are you sure you want to submit your code?\n\nYou will not be able to come back to it.',
-    prompt:     'What\'s your name?',
     leave:      'Are you sure you want to leave the page? All your code will be lost!'
   }
 }
@@ -13,7 +12,6 @@ NoLight = {
 NoLight.init = ->
   header          = $('header')
   editor          = $('#editor')
-  submission_name = $('#submission_name')
   submission_html = $('#submission_html')
   submit_button   = $('#submit')
 
@@ -49,10 +47,9 @@ NoLight.init = ->
     if submission_html_trimmed.length is 0
       return alert(NoLight.translations['empty_html'])
 
-    # Ask them to confirm + their name.
-    NoLight.confirmAndPrompt().then((name) ->
+    # Ask them to confirm before submitting.
+    NoLight.confirmAndPrompt().then(() ->
       submit_button.addClass('progress')
-      submission_name.val(name)
       NoLight.hasSubmittedForm = true
 
       # Submit the form!
@@ -79,11 +76,7 @@ NoLight.confirmAndPrompt = ->
   new Promise (resolve, reject) ->
     confirm_dialog = confirm NoLight.translations['confirm']
     if confirm_dialog
-      name_prompt = prompt NoLight.translations['prompt']
-      if name_prompt is null || $.trim(name_prompt) is ''
-        reject()
-      else
-        resolve(name_prompt)
+      resolve()
     else
       reject()
 

@@ -59,21 +59,35 @@ class NoLightSinatra < Sinatra::Base
   end
 
   post '/submit' do
-    @submission = Submission.new(get_submit_params)
+    authorize do
+      @submission = Submission.new(get_submit_params)
 
-    if @submission.already_exists?
-      erb :error
-    else
-      @submission.save
-      erb :submitted
+      if @submission.already_exists?
+        erb :error, locals: { 
+          title: "Error - Already Submitted", 
+          message: "You have already submitted this code under your name (\"#{@submission.name}\")." 
+        }
+      else
+        @submission.save
+        erb :submitted
+      end
     end
   end
 
   get '/:hackathon.zip' do
-    if @submissions = Submission.by_hackathon(params[:hackathon])
-      create_zip_folder(@submissions)
-      set_response_headers
-      download_zip_folder
+    authorize do
+      @submissions = Submission.by_hackathon(params[:hackathon])
+
+      if @submissions.count > 0
+        create_zip_folder(@submissions)
+        set_response_headers
+        download_zip_folder
+      else
+        erb :error, locals: { 
+          title: "Error - No Submissions", 
+          message: "We did not receive any submissions for your event (\"#{params[:hackathon]}\")." 
+        }
+      end
     end
   end
 
@@ -111,7 +125,10 @@ class NoLightSinatra < Sinatra::Base
 
   def get_submit_params
     get_submit_params = params[:submission] || {}
-    get_submit_params.merge('seconds' => seconds_from(params[:submission][:seconds]))
+    get_submit_params.merge({
+      'seconds' => seconds_from(params[:submission][:seconds]),
+      'name' => session[:full_name]
+    })
   end
 
   def get_hackathon
