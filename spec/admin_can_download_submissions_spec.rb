@@ -82,6 +82,6 @@ describe NoLightSinatra do
     tempfile.write(page.source)
     tempfile.close
 
-    tempfile    
+    tempfile
   end
 end
