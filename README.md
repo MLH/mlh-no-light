@@ -1,7 +1,5 @@
 <center><img src="public/img/ui/no-light.png" width="100%" /></center>
 
-[![Circle CI](https://circleci.com/gh/MLH/no-light/tree/master.svg?style=svg)](https://circleci.com/gh/MLH/no-light/tree/master) 
-
 <br>
 This is a **micro service** that allows participants of the No Light mini-event to quickly submit their entries (see below for more info). The organizer of the mini-event can then conveniently download a ZIP file of all the entries.
 
@@ -10,18 +8,19 @@ This is a **micro service** that allows participants of the No Light mini-event 
 	<img src="public/img/ui/screenshot2.png" width="100%" />
 </center>
 
+[![Circle CI](https://circleci.com/gh/MLH/no-light/tree/master.svg?style=svg)](https://circleci.com/gh/MLH/no-light/tree/master) 
+
 ## FAQ
 
 ### What is No Light?
 
 No Light is a mini-event that [Major League Hacking](http://mlh.io) organizes at our hackathons in North America & Europe. Using a really basic code editor, students have 15-20 minutes to replicate a webpage with no previews along the way.
 
-<br>
 ### How do I setup my own version of No Light?
 
 Firstly, you will want to [fork the repository](http://github.com/bih/no-light). You can deploy this on a service like [Heroku](http://heroku.com) with the following configuration: Ruby 1.9.3 and a MongoDB instance.
 
-A few don't:
+A few don'ts:
 
 - Please **do not** use the Outage font.
 - Please **do not** use the Major League Hacking logo, name or trademarks.
@@ -47,7 +46,6 @@ Launch server locally (on Mac OS X):
 $ rackup
 ```
 
-<br>
 ### How do I use No Light?
 
 The best way to run through this is through a little story. Here goes.
@@ -64,7 +62,6 @@ Jon opens each file and picks one winner through an audience vote.
 
 End of story.
 
-<br>
 # Contributing Guidelines
 
 Use the following guides for getting things done, programming well, and
@@ -74,7 +71,6 @@ programming in style.
 * [Best Practices](http://github.com/thoughtbot/guides/blob/master/best-practices)
 * [Style](http://github.com/thoughtbot/guides/blob/master/style)
 
-<br>
 # LICENSE
 
 The micro service for No Light is released under the MIT Licence. More information [can be found in LICENSE.md](LICENSE.md).
