@@ -1,14 +1,8 @@
 <center><img src="public/img/ui/no-light.png" width="100%" /></center>
 
-<br>
 This is a **micro service** that allows participants of the No Light mini-event to quickly submit their entries (see below for more info). The organizer of the mini-event can then conveniently download a ZIP file of all the entries.
 
-<center>
-	<img src="public/img/ui/screenshot.png" width="100%" />
-	<img src="public/img/ui/screenshot2.png" width="100%" />
-</center>
-
-[![Circle CI](https://circleci.com/gh/MLH/no-light/tree/master.svg?style=svg)](https://circleci.com/gh/MLH/no-light/tree/master) 
+[![CircleCI](https://circleci.com/gh/MLH/mlh-no-light.svg?style=svg)](https://circleci.com/gh/MLH/mlh-no-light)
 
 ## FAQ
 
@@ -61,6 +55,14 @@ Jon's excited to show the submissions. He visits the link that was given to Jane
 Jon opens each file and picks one winner through an audience vote.
 
 End of story.
+
+# Screenshots
+
+<center>
+	<img src="public/img/ui/screenshot.png" width="100%" />
+	<img src="public/img/ui/screenshot2.png" width="100%" />
+</center>
+
 
 # Contributing Guidelines
 
