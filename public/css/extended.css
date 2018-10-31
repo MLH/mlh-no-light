@@ -225,6 +225,13 @@ form {
   width: 300px;
 }
 
+.blackrock #sponsors .custom-branding {
+  background: url('/img/sponsors/blackrock.png') no-repeat 10px 20px;
+  background-size: 85% auto;
+
+  width: 300px;
+}
+
 .kcl #sponsors .custom-branding {
   background: url('/img/sponsors/kcl.png') no-repeat 0 10px;
   background-size: auto 85%;
