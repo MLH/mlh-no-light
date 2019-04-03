@@ -30,11 +30,6 @@ class NoLightSinatra < Sinatra::Base
     MongoMapper.setup(ENVIRONMENTS, ENV['RACK_ENV'])
   end
 
-  configure :production do
-    require "skylight/sinatra"
-    Skylight.start!
-  end
-
   get '/' do
     erb :default_page
   end
@@ -63,9 +58,9 @@ class NoLightSinatra < Sinatra::Base
       @submission = Submission.new(get_submit_params)
 
       if @submission.already_exists?
-        erb :error, locals: { 
-          title: "Error - Already Submitted", 
-          message: "You have already submitted this code under your name (\"#{@submission.name}\")." 
+        erb :error, locals: {
+          title: "Error - Already Submitted",
+          message: "You have already submitted this code under your name (\"#{@submission.name}\")."
         }
       else
         @submission.save
@@ -83,9 +78,9 @@ class NoLightSinatra < Sinatra::Base
         set_response_headers
         download_zip_folder
       else
-        erb :error, locals: { 
-          title: "Error - No Submissions", 
-          message: "We did not receive any submissions for your event (\"#{params[:hackathon]}\")." 
+        erb :error, locals: {
+          title: "Error - No Submissions",
+          message: "We did not receive any submissions for your event (\"#{params[:hackathon]}\")."
         }
       end
     end
