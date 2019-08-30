@@ -48,7 +48,7 @@ This story has three characters: Jon, Jane and Sam. Jon is the person moderating
 
 Jon tells Jane and Sam to go to `http://no-light.mlh.io/whatever-this-event-is-called` and it just works. Jon did no setup beforehand. Jon also shows a website that Jane and Sam need to replicate in 20 minutes.
 
-Bob and Smith visit the URL above and write their code. After 20 minutes, they both submit their code by pressing the big '!light' button. They loved the event though were nervous as to what their webpage looked like.
+Jane and Smith visit the URL above and write their code. After 20 minutes, they both submit their code by pressing the big '!light' button. They loved the event though were nervous as to what their webpage looked like.
 
 Jon's excited to show the submissions. He visits the link that was given to Jane and Sam and he added `.zip` to the end (so the link to download the zip is `http://no-light.mlh.io/whatever-this-event-is-called.zip`). He is now given a ZIP file of all the submissions. Amazing.
 
