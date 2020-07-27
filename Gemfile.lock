@@ -50,7 +50,7 @@ GEM
       multipart-post (>= 1.2, < 3)
     hashie (3.5.5)
     i18n (0.8.4)
-    json (2.1.0)
+    json (2.3.1)
     jwt (1.5.6)
     method_source (0.8.2)
     mime-types (3.1)
