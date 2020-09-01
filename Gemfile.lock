@@ -95,7 +95,7 @@ GEM
       rack
     rack-test (0.6.3)
       rack (>= 1.0)
-    rake (12.0.0)
+    rake (12.3.3)
     rubyzip (1.2.1)
     selenium-webdriver (3.14.0)
       childprocess (~> 0.5)
