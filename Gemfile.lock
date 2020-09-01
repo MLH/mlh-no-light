@@ -133,7 +133,7 @@ PLATFORMS
 
 DEPENDENCIES
   activemodel-serializers-xml
-  airbrake (~> 7.0.0)
+  airbrake
   bson_ext
   capybara
   database_cleaner
