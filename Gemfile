@@ -1,4 +1,4 @@
-ruby   '2.4.0'
+ruby   '2.4.5'
 source 'https://rubygems.org'
 
 gem 'activemodel-serializers-xml'

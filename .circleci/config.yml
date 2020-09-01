@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/ruby:2.4.0
+      - image: circleci/ruby:2.4.5
         environment:
           SECRET_KEY_BASE: "test_secret"
     steps:
