@@ -12,7 +12,4 @@ jobs:
     steps:
       - checkout
       - bundle install
-  test:
-    steps:
-      - bundle install
       - rake spec
