@@ -9,7 +9,10 @@ jobs:
         - mongodb
       environment:
         SECRET_KEY_BASE: "test_secret"
+    steps:
+      - checkout
+      - bundle install
   test:
-    override:
+    steps:
       - bundle install
       - rake spec
