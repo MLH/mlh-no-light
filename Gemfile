@@ -9,7 +9,7 @@ gem 'sinatra'
 gem 'sinatra-contrib'
 gem 'zippy'
 gem 'omniauth'
-gem 'omniauth-mlh'
+gem 'omniauth-mlh', '0.4.1'
 
 group :development do
   gem 'sinatra-reloader'
@@ -22,8 +22,7 @@ end
 
 group :test do
   gem 'capybara'
-  gem 'capybara-webkit'
-  gem 'capybara_minitest_spec'
+  gem 'webdrivers'
   gem 'database_cleaner'
   gem 'faker'
   gem 'minitest'

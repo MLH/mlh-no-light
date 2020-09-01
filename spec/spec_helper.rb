@@ -11,6 +11,7 @@ set :environment, :test
 
 require_relative "../no_light_sinatra.rb"
 
+require 'webdrivers'
 require 'minitest/pride'
 require 'minitest/autorun'
 require 'minitest/spec'
