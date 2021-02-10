@@ -1,10 +1,8 @@
-ruby   '2.4.0'
+ruby   '2.6.6'
 source 'https://rubygems.org'
 
-gem 'activemodel-serializers-xml'
 gem 'airbrake'
-gem 'bson_ext'
-gem 'mongo_mapper'
+gem 'mongo_mapper', '0.15.0'
 gem 'sinatra'
 gem 'sinatra-contrib'
 gem 'zippy'
