@@ -1,13 +1,13 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    activemodel (6.1.2)
-      activesupport (= 6.1.2)
+    activemodel (6.1.7.2)
+      activesupport (= 6.1.7.2)
     activemodel-serializers-xml (1.0.2)
       activemodel (> 5.x)
       activesupport (> 5.x)
       builder (~> 3.1)
-    activesupport (6.1.2)
+    activesupport (6.1.7.2)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
@@ -30,7 +30,7 @@ GEM
     childprocess (0.9.0)
       ffi (~> 1.0, >= 1.0.11)
     coderay (1.1.3)
-    concurrent-ruby (1.1.8)
+    concurrent-ruby (1.2.0)
     database_cleaner (1.99.0)
     faker (1.9.6)
       i18n (>= 0.7)
@@ -41,7 +41,7 @@ GEM
     faraday-net_http (1.0.1)
     ffi (1.14.2)
     hashie (3.6.0)
-    i18n (1.8.8)
+    i18n (1.12.0)
       concurrent-ruby (~> 1.0)
     jwt (2.2.2)
     method_source (1.0.0)
@@ -112,7 +112,7 @@ GEM
     sinatra-reloader (1.0)
       sinatra-contrib
     tilt (2.0.10)
-    tzinfo (2.0.4)
+    tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     webdrivers (4.5.0)
       nokogiri (~> 1.6)
@@ -120,7 +120,7 @@ GEM
       selenium-webdriver (>= 3.0, < 4.0)
     xpath (2.1.0)
       nokogiri (~> 1.3)
-    zeitwerk (2.4.2)
+    zeitwerk (2.6.6)
     zippy (0.2.3)
       rubyzip (>= 1.0.0)
 
