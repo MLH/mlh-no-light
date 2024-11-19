@@ -1,13 +1,11 @@
 require "bundler"
 Bundler.require
 
-require './no_light_sinatra'
-
-%w{bundler find rake/testtask}.each { |lib| require lib }
+require 'rspec/core/rake_task'
 
 task default: :spec
 
-Rake::TestTask.new(:spec) do |t|
-  t.ruby_opts = ['-W1']
-  t.test_files = FileList['spec/*_spec.rb']
+RSpec::Core::RakeTask.new(:spec) do |t|
+  t.pattern = 'spec/**/*_spec.rb'
+  t.rspec_opts = ['--color', '--format documentation']
 end

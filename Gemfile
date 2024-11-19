@@ -24,10 +24,10 @@ group :development, :test do
 end
 
 group :test do
+  gem 'rspec'
   gem 'capybara'
   gem 'webdrivers'
-  gem 'database_cleaner'
+  gem 'database_cleaner-mongo'
   gem 'faker'
-  gem 'minitest'
   gem 'rack-test'
 end
