@@ -5,7 +5,7 @@ class NoLightSinatra < Sinatra::Base
   enable  :sessions
 
   use OmniAuth::Builder do
-    provider :mlh, ENV['MY_MLH_KEY'], ENV['MY_MLH_SECRET'], scope: 'default'
+    provider :mlh, ENV['MY_MLH_KEY'], ENV['MY_MLH_SECRET'], scope: 'user:read:profile'
   end
 
   set public_folder: 'public', static: true
