@@ -1,13 +1,17 @@
-ruby   '2.6.6'
+ruby   '3.1.6'
 source 'https://rubygems.org'
 
-gem 'airbrake'
-gem 'mongo_mapper', '0.15.0'
+gem 'mongo_mapper', '0.16.0'
 gem 'sinatra'
 gem 'sinatra-contrib'
 gem 'zippy'
 gem 'omniauth'
-gem 'omniauth-mlh', '0.4.1'
+gem 'omniauth-mlh', '~> 4.1'
+gem 'ostruct'
+gem 'puma'
+gem "stackprof"
+gem "sentry-ruby"
+
 
 group :development do
   gem 'sinatra-reloader'
@@ -16,6 +20,7 @@ end
 group :development, :test do
   gem 'pry'
   gem 'rake'
+  gem 'dotenv'
 end
 
 group :test do

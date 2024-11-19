@@ -1,16 +1,7 @@
+require 'dotenv/load' if ENV['RACK_ENV'] == 'development'
 require_relative 'models/submission'
 
-Airbrake.configure do |c|
-  c.project_id = 141503
-  c.project_key = '94823b6fc825a7bd16f6fc359d0ac501'
-  c.logger.level = Logger::DEBUG
-  c.environment = ENV['RACK_ENV']
-  c.ignore_environments = %w(test)
-  c.blacklist_keys = [/password/i]
-end
-
 class NoLightSinatra < Sinatra::Base
-  use Airbrake::Rack::Middleware unless ENV['RACK_ENV'] == 'test'
   enable  :sessions
 
   use OmniAuth::Builder do
