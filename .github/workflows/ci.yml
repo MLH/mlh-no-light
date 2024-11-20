@@ -1,0 +1,48 @@
+name: Ruby CI
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+    branches:
+      - main
+      - master
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        ruby-version:
+          - '3.1'
+        mongodb-version:
+          - '5.0'
+          - '6.0'
+          - '7.0'
+          - '8.0'
+
+    env:
+      SECRET_KEY_BASE: "test_secret"
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ matrix.ruby-version }}
+          bundler-cache: true
+
+      - name: Install dependencies
+        run: bundle install
+
+      - name: Start MongoDB
+        uses: supercharge/mongodb-github-action@v1
+        with:
+          mongodb-version: ${{ matrix.mongodb-version }}
+
+      - name: Run tests
+        run: bundle exec rake spec
