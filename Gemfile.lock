@@ -96,7 +96,7 @@ GEM
       hashie (>= 3.4.6)
       rack (>= 2.2.3)
       rack-protection
-    omniauth-mlh (4.1.0)
+    omniauth-mlh (4.2.0)
       oauth2 (~> 2.0.9)
       omniauth (~> 2.1.1)
       omniauth-oauth2 (~> 1.8.0)
@@ -188,7 +188,7 @@ DEPENDENCIES
   faker
   mongo_mapper (= 0.16.0)
   omniauth
-  omniauth-mlh (~> 4.1)
+  omniauth-mlh (~> 4.2)
   ostruct
   pry
   puma
