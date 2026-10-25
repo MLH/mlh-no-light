@@ -6,7 +6,7 @@ gem 'sinatra'
 gem 'sinatra-contrib'
 gem 'zippy'
 gem 'omniauth'
-gem 'omniauth-mlh', '~> 4.1'
+gem 'omniauth-mlh', '~> 4.2'
 gem 'ostruct'
 gem 'puma'
 gem "stackprof"
