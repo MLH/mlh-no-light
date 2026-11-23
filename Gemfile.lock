@@ -63,6 +63,7 @@ GEM
     matrix (0.4.2)
     method_source (1.1.0)
     mini_mime (1.1.5)
+    mini_portile2 (2.8.9)
     minitest (5.25.1)
     mongo (2.21.0)
       bson (>= 4.14.1, < 6.0.0)
@@ -81,6 +82,9 @@ GEM
     net-http (0.5.0)
       uri
     nio4r (2.7.4)
+    nokogiri (1.16.7)
+      mini_portile2 (~> 2.8.2)
+      racc (~> 1.4)
     nokogiri (1.16.7-arm64-darwin)
       racc (~> 1.4)
     nokogiri (1.16.7-x86_64-linux)
@@ -174,8 +178,6 @@ GEM
     websocket (1.2.11)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    zippy (0.2.3)
-      rubyzip (>= 1.0.0)
 
 PLATFORMS
   arm64-darwin-24
@@ -195,16 +197,16 @@ DEPENDENCIES
   rack-test
   rake
   rspec
+  rubyzip (~> 2.3.2)
   sentry-ruby
   sinatra
   sinatra-contrib
   sinatra-reloader
   stackprof
   webdrivers
-  zippy
 
 RUBY VERSION
-   ruby 3.1.6p260
+   ruby 3.4.13p195
 
 BUNDLED WITH
-   2.3.27
+   2.6.9
