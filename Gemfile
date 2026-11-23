@@ -1,10 +1,10 @@
-ruby '3.1.6'
+ruby '3.4.13'
 source 'https://rubygems.org'
 
 gem 'mongo_mapper', '0.16.0'
 gem 'sinatra'
 gem 'sinatra-contrib'
-gem 'zippy'
+gem 'rubyzip', '~> 2.3.2', require: 'zip'
 gem 'omniauth'
 gem 'omniauth-mlh', '~> 4.2'
 gem 'ostruct'

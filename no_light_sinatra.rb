@@ -125,14 +125,11 @@ class NoLightSinatra < Sinatra::Base
     (Time.now - Time.parse(time_to_compare)).to_i
   end
 
-  def create_zip_folder(array = [])
-    Zippy.create(create_tempfile.path) do |zip|
-      if zip && block_given?
-        yield(zip)
-      else
-        array.to_a.each do |entry|
-          zip[entry.filename] = entry.html
-        end
+  def create_zip_folder(submissions)
+    Zip::OutputStream.open(create_tempfile.path) do |zip|
+      submissions.each do |entry|
+        zip.put_next_entry(entry.filename)
+        zip.write(entry.html)
       end
     end
   end

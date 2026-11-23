@@ -35,12 +35,12 @@ RSpec.describe 'Admin can download submissions', type: :feature do
   it "creates a zip with the correct number of submissions" do
     zipfile = visit_and_get_zip_for('hacktheplanet')
 
-    expect(Zippy.list(zipfile.path).count).to eq(10)
+    expect(Zip::File.open(zipfile.path) { |zip| zip.entries.count }).to eq(10)
   end
 
   it "names the files within the zip as expected" do
     zipfile = visit_and_get_zip_for('hacktheplanet')
-    actual_files = Zippy.list(zipfile.path)
+    actual_files = Zip::File.open(zipfile.path) { |zip| zip.entries.map(&:name) }
     submissions = Submission.by_hackathon('hacktheplanet')
 
     submissions.each do |submission|
